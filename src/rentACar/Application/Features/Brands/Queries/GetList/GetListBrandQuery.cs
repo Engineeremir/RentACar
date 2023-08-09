@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Brands.Queries.GetList;
 
-public class GetListBrandQuery:IRequest<GetListResponse<GetListBrandListItemDto>>
+public class GetListBrandQuery:IRequest<GetListResponse<GetListBrandListResponse>>
 {
     public PageRequest PageRequest { get; set; }
 
-    public class GetListBrandQueryHandler:IRequestHandler<GetListBrandQuery,GetListResponse<GetListBrandListItemDto>>
+    public class GetListBrandQueryHandler:IRequestHandler<GetListBrandQuery,GetListResponse<GetListBrandListResponse>>
     {
         private readonly IBrandRepository _brandRepository;
         private readonly IMapper _mapper;
@@ -28,7 +28,7 @@ public class GetListBrandQuery:IRequest<GetListResponse<GetListBrandListItemDto>
             _mapper = mapper;
         }
 
-        public async Task<GetListResponse<GetListBrandListItemDto>> Handle(GetListBrandQuery request, CancellationToken cancellationToken)
+        public async Task<GetListResponse<GetListBrandListResponse>> Handle(GetListBrandQuery request, CancellationToken cancellationToken)
         {
             Paginate<Brand> brands = await _brandRepository.GetListAsync(
                 index: request.PageRequest.PageIndex,
@@ -36,7 +36,7 @@ public class GetListBrandQuery:IRequest<GetListResponse<GetListBrandListItemDto>
                 cancellationToken: cancellationToken
                 );
 
-            GetListResponse<GetListBrandListItemDto> response = _mapper.Map<GetListResponse<GetListBrandListItemDto>>(brands);
+            GetListResponse<GetListBrandListResponse> response = _mapper.Map<GetListResponse<GetListBrandListResponse>>(brands);
             return response;
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Brands.Queries.GetList;
 
-public class GetListBrandListItemDto
+public class GetListBrandListResponse
 {
     public Guid Id{ get; set; }
     public string Name { get; set; }

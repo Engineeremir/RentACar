@@ -21,8 +21,8 @@ public class MappingProfiles:Profile
     {
         CreateMap<Brand, CreateBrandCommand>().ReverseMap();
         CreateMap<Brand, CreatedBrandResponse>().ReverseMap();
-        CreateMap<Brand, GetListBrandListItemDto>().ReverseMap();
-        CreateMap<Paginate<Brand>, GetListResponse<GetListBrandListItemDto>>().ReverseMap();
+        CreateMap<Brand, GetListBrandListResponse>().ReverseMap();
+        CreateMap<Paginate<Brand>, GetListResponse<GetListBrandListResponse>>().ReverseMap();
         CreateMap<Brand, GetByIdBrandResponse>().ReverseMap();
         CreateMap<Brand, UpdatedBrandResponse>().ReverseMap();
         CreateMap<Brand, UpdateBrandCommand>().ReverseMap();
