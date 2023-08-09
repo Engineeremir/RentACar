@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Brands.Commands.Create;
+namespace Application.Features.Brands.Queries.GetById;
 
-public class CreatedBrandResponse
+public class GetByIdBrandResponse
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
-    public DateTime CreatedDate { get; set; }
 }
